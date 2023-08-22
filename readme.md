@@ -64,7 +64,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 5. **Access the API:**
 
    The API should be accessible at `http://localhost:4000`.
-   It is also live remotely at `akinboboye-akinwande-tobmas-production.up.railway.app`.
+   It is also live remotely at `https://akinboboye-akinwande-tobmas-production.up.railway.app`.
 
 ## API Endpoints
 
