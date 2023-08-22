@@ -63,7 +63,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 
 5. **Access the API:**
 
-   The API should be accessible at `http://localhost:4000`.
+   The API should be accessible at `http://localhost:4000` if running on your local device.
    It is also live remotely at `https://akinboboye-akinwande-tobmas-production.up.railway.app`.
 
 ## API Endpoints
@@ -82,11 +82,11 @@ This API uses JWT (JSON Web Token) for authentication. The token is generated up
 
 ## Error Handling
 
-Error handling is implemented for various scenarios, including validation errors, authentication errors, and server errors.
+Error handling is implemented for various scenarios, including validation errors, authentication errors, and server errors with appropriate status codes and informative messages.
 
 ## Postman Collection
 
-The postman collection for this project is available at [Postman Collection](https://www.postman.com/planetary-rocket-306155/workspace/public-workspace/collection/18499196-6eb87ad3-f9f6-40b3-a384-115cfbc34d03?action=share&creator=18499196&active-environment=18499196-94083831-2784-437f-bc2e-30266dd6e512)
+The postman collection for this project is available at [Postman Collection](https://www.postman.com/planetary-rocket-306155/workspace/public-workspace/collection/18499196-6eb87ad3-f9f6-40b3-a384-115cfbc34d03?action=share&creator=18499196&active-environment=18499196-94083831-2784-437f-bc2e-30266dd6e512) in the collection `Akinboboye-Akinwande-Tobmas`
 
 ## Appreciation
 

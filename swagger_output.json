@@ -32,6 +32,10 @@
                   "type": "number",
                   "example": 200
                 },
+                "error": {
+                  "type": "boolean",
+                  "example": false
+                },
                 "message": {
                   "type": "string",
                   "example": "Welcome to your dashboard boboye66"
@@ -43,10 +47,50 @@
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "You need to login and send access token with your header",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You are not authenticated"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Your access token has either expired or is invalid. Please check properly or request a new one by logging in",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 403
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Token is invalid"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error"
@@ -113,6 +157,10 @@
                   "type": "number",
                   "example": 200
                 },
+                "error": {
+                  "type": "boolean",
+                  "example": false
+                },
                 "username": {
                   "type": "string",
                   "example": "boboye66"
@@ -128,10 +176,50 @@
             }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Either username/password is missing or password fails validation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 400
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Please enter username and password/Password too weak. Passowrd must contain letters, numbers, symbols and must be at least 8 characters long with at least one capital letter"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "409": {
-            "description": "Conflict"
+            "description": "The Username you chose is already in use.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 409
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Username already in use"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error"
@@ -176,6 +264,10 @@
                   "type": "number",
                   "example": 200
                 },
+                "error": {
+                  "type": "boolean",
+                  "example": false
+                },
                 "username": {
                   "type": "string",
                   "example": "boboye66"
@@ -191,13 +283,73 @@
             }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Either username/password is missing",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 400
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Please enter username and password"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "The password you entered is incorrect",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Incorrect password"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Not Found"
+            "description": "Username not found in database",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 404
+                },
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "User with username not found"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error"
