@@ -57,6 +57,10 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
    npm run swagger-autogen #to update the documentation if you make changes
    ```
 
+    ```bash
+   npm run test #to run mocha tests
+   ```
+
 5. **Access the API:**
 
    The API should be accessible at `http://localhost:4000`.
@@ -79,7 +83,7 @@ Error handling is implemented for various scenarios, including validation errors
 
 ## Postman Collection
 
-The postman collection for this project is available at [Postman Collection](https://www.postman.com/planetary-rocket-306155/workspace/public-workspace/collection/18499196-6eb87ad3-f9f6-40b3-a384-115cfbc34d03?action=share&creator=18499196)
+The postman collection for this project is available at [Postman Collection](https://www.postman.com/planetary-rocket-306155/workspace/public-workspace/collection/18499196-6eb87ad3-f9f6-40b3-a384-115cfbc34d03?action=share&creator=18499196&active-environment=18499196-94083831-2784-437f-bc2e-30266dd6e512)
 
 ## Appreciation
 
