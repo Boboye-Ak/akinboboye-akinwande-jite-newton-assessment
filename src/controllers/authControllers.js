@@ -1,12 +1,16 @@
 const bcrypt = require("bcrypt")
 const User = require("../models/Users")
 const { createToken } = require("../utils/tokens")
+const { validatePassword } = require("../utils/password-validation")
 
 module.exports.signup_post = async (req, res) => {
     try {
         const { username, password } = req.body
         if (!username || !password) {
             return res.status(400).json({ message: "Please enter username and password" })
+        }
+        if(!validatePassword(password)){
+            return res.status(400).json({message:"Password too weak. Passowrd must contain letters, numbers, symbols and must be at least 8 characters long"})
         }
         const usernameExists = await User.findOne({ username: username.toLowerCase() })
         if (usernameExists) {

@@ -31,8 +31,8 @@ app.use(cors())
 app.use(express.json())
 
 //Routing
-app.use("/auth", authRouter)
-app.get("/dashboard", [requiresAuth],dashboard_get)
+app.use("/api/auth", authRouter)
+app.get("/api/dashboard", [requiresAuth], dashboard_get)
 
 //Test endpoint
 app.get("/test", (req, res) => {

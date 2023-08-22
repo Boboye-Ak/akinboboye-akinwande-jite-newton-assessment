@@ -6,6 +6,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 
 - User authentication using JWT (JSON Web Token)
 - Secure password storage with hashing
+- Password validation using a regex function(Only allows strong passwords. Password must contain letters, numbers, symbols and at least 8 characters long)
 - MongoDB as the database backend
 - Express.js for routing and middleware
 - Error handling and validation
@@ -48,7 +49,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
     npm start
     ```
      ```bash
-    npm run dev //for development mode
+    npm run dev #for development mode
     ```
     
 
@@ -58,9 +59,12 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 
 ## API Endpoints
 
+- **GET /test**: Test the api
 - **POST /auth/signup**: Register a new user
 - **POST /api/login**: Authenticate and generate JWT token
 - **GET /api/dashboard**: Get user dashboard data (protected route)
+- **GET /doc/**: Get api swagger documentation
+
 
 ## Authentication
 
