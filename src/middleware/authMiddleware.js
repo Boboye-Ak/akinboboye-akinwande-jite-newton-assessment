@@ -36,7 +36,7 @@ module.exports.signupValidator = async (req, res, next) => {
             return res.status(409).json({ message: "Username already in use", status: 409 })
         }
         const salt = await bcrypt.genSalt()
-        req.hashedPassword = await bcrypt.hash(password, salt)
+        req.body.hashedPassword = await bcrypt.hash(password, salt)
         next()
     } catch (e) {
         console.log(e)
@@ -48,15 +48,18 @@ module.exports.signupValidator = async (req, res, next) => {
 module.exports.loginValidator = async (req, res, next) => {
     try {
         const { username, password } = req.body
+        if (!username || !password) {
+            return res.status(400).json({ message: "Please enter username and password" })
+        }
         const user = await User.findOne({ username: username })
         if (!user) {
             return res.status(404).json({ message: "User with username not found", status: 404 })
         }
         const isCorrectPassword = await bcrypt.compare(password, user.password)
         if (!isCorrectPassword) {
-            return res.status(400).json({ message: "Incorrect password", status: 400 })
+            return res.status(401).json({ message: "Incorrect password", status: 401 })
         }
-        req.user=user
+        req.user = user
         next()
 
     } catch (e) {

@@ -85,9 +85,64 @@ describe("/api/auth", () => {
     })
 
 
-    describe("/api/auth/login", ()=>{
-        
-    })
+    describe("/api/auth/login", () => {
+        it("responds with code 400 if no username or password is sent", (done) => {
+            chai.request(app)
+                .post("/api/auth/login")
+                .end((err, res) => {
+                    res.should.have.status(400);
+                    expect(res.body.message).to.be.equal("Please enter username and password");
+                    done();
+                });
+        });
+
+        it("responds with status code 404 if username does not exist", (done) => {
+            let credentials = {
+                username: "boboyeasasasasasasa",
+                password: "$WrongPassword1234"
+            };
+            chai.request(app)
+                .post("/api/auth/login")
+                .send(credentials)
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    expect(res.body.message).to.be.equal("User with username not found");
+                    done();
+                });
+        });
+
+        it("responds with status code 401 if password is incorrect", (done) => {
+            let credentials = {
+                username: "boboye",
+                password: "$WrongPassword1234"
+            };
+            chai.request(app)
+                .post("/api/auth/login")
+                .send(credentials)
+                .end((err, res) => {
+                    res.should.have.status(401);
+                    expect(res.body.message).to.be.equal("Incorrect password");
+                    done();
+                });
+        });
+
+        it("should respond with a JWT token if username and password are correct", (done) => {
+            let credentials = {
+                username: "boboye",
+                password: "$StrongPassword1234"
+            };
+            chai.request(app)
+                .post("/api/auth/login")
+                .send(credentials)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    expect(res.body).to.have.property("accessToken");
+                    expect(res.body.message).to.be.equal("Login Successful");
+                    done();
+                });
+        });
+    });
+
 
 })
 
