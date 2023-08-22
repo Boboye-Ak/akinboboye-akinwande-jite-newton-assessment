@@ -36,7 +36,7 @@ module.exports.signupValidator = async (req, res, next) => {
             return res.status(409).json({ message: "Username already in use", status: 409 })
         }
         const salt = await bcrypt.genSalt()
-        req.body.hashedPassword = await bcrypt.hash(password, salt)
+        req.hashedPassword = await bcrypt.hash(password, salt)
         next()
     } catch (e) {
         console.log(e)

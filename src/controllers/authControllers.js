@@ -4,7 +4,8 @@ const { createToken } = require("../utils/tokens")
 
 module.exports.signup_post = async (req, res) => {
     try {
-        const { username, hashedPassword } = req.body
+        const { username } = req.body
+        const hashedPassword = req.hashedPassword
         const newUser = new User({ username: username, password: hashedPassword })
         await newUser.save()
         const accessToken = createToken(newUser._id)
