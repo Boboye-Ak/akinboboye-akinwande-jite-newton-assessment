@@ -8,8 +8,8 @@
   "host": "akinboboye-akinwande-tobmas-production.up.railway.app",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "paths": {
     "/api/dashboard": {
