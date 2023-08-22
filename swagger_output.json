@@ -14,7 +14,7 @@
   "paths": {
     "/api/dashboard": {
       "get": {
-        "description": "",
+        "description": "Endpoint for user to get his dashboard data from the backend",
         "parameters": [
           {
             "name": "authorization",
@@ -24,50 +24,108 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Username, status and token.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Welcome to your dashboard boboye66"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/test": {
       "get": {
-        "description": "",
+        "description": "Endpoint to test if the server is online",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Username, status and token.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Hello world"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
     },
     "/api/auth/signup": {
       "post": {
-        "description": "",
+        "description": "Endpoint to register as a new user using username and password. Usernames must be unique. Passwords must meet criteria of at least one upper case character, at least one lower case character, at least one numerical character, at least one symbol and must be at least 8 characters long",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Add new user.",
             "schema": {
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "boboye66"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "#Strongpassword321"
                 }
-              }
+              },
+              "required": [
+                "username",
+                "password"
+              ]
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Username, status and token.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "username": {
+                  "type": "string",
+                  "example": "boboye66"
+                },
+                "accessToken": {
+                  "type": "string",
+                  "example": "access_token"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "400": {
             "description": "Bad Request"
@@ -83,27 +141,54 @@
     },
     "/api/auth/login": {
       "post": {
-        "description": "",
+        "description": "Endpoint for users to login using username and password",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Login as existing user.",
             "schema": {
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "boboye66"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "#Strongpassword321"
                 }
-              }
+              },
+              "required": [
+                "username",
+                "password"
+              ]
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Username, status and token.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "username": {
+                  "type": "string",
+                  "example": "boboye66"
+                },
+                "accessToken": {
+                  "type": "string",
+                  "example": "access_token"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "400": {
             "description": "Bad Request"
