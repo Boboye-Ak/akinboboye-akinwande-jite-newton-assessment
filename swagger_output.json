@@ -5,14 +5,14 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "localhost:4000",
+  "host": "akinboboye-akinwande-tobmas-production.up.railway.app/doc",
   "basePath": "/",
   "schemes": [
     "http",
     "https"
   ],
   "paths": {
-    "/dashboard": {
+    "/api/dashboard": {
       "get": {
         "description": "",
         "parameters": [
@@ -45,7 +45,7 @@
         }
       }
     },
-    "/auth/signup": {
+    "/api/auth/signup": {
       "post": {
         "description": "",
         "parameters": [
@@ -55,6 +55,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "hashedPassword": {
+                  "example": "any"
+                },
                 "username": {
                   "example": "any"
                 },
@@ -81,7 +84,7 @@
         }
       }
     },
-    "/auth/login": {
+    "/api/auth/login": {
       "post": {
         "description": "",
         "parameters": [
@@ -107,6 +110,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
