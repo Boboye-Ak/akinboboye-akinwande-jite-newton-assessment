@@ -58,7 +58,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
    ```
 
     ```bash
-   npm run test #to run mocha tests
+   npm run test #to run mocha tests. To be able to use tests you need to have mongoDB running locally on your PC
    ```
 
 5. **Access the API:**
