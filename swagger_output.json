@@ -55,9 +55,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "hashedPassword": {
-                  "example": "any"
-                },
                 "username": {
                   "example": "any"
                 },
