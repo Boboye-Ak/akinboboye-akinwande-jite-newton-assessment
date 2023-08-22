@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken")
+const bcrypt = require("bcrypt")
 const JWT_SECRET = process.env.JWT_SECRET
 const User = require("../models/Users")
+const { validatePassword } = require("../utils/password-validation")
 module.exports.requiresAuth = async (req, res, next) => {
     //Logic to check for authentication
     const authHeaders = req.headers.authorization
@@ -17,5 +19,48 @@ module.exports.requiresAuth = async (req, res, next) => {
         })
     } else {
         return res.status(401).json({ message: "You are not authenticated" })
+    }
+}
+
+module.exports.signupValidator = async (req, res, next) => {
+    try {
+        const { username, password } = req.body
+        if (!username || !password) {
+            return res.status(400).json({ message: "Please enter username and password", status: 400 })
+        }
+        if (!validatePassword(password)) {
+            return res.status(400).json({ message: "Password too weak. Passowrd must contain letters, numbers, symbols and must be at least 8 characters long with at least one capital letter", status: 400 })
+        }
+        const usernameExists = await User.findOne({ username: username.toLowerCase() })
+        if (usernameExists) {
+            return res.status(409).json({ message: "Username already in use", status: 409 })
+        }
+        const salt = await bcrypt.genSalt()
+        req.hashedPassword = await bcrypt.hash(password, salt)
+        next()
+    } catch (e) {
+        console.log(e)
+        return res.status(500).json({ message: "Server Error" })
+    }
+
+}
+
+module.exports.loginValidator = async (req, res, next) => {
+    try {
+        const { username, password } = req.body
+        const user = await User.findOne({ username: username })
+        if (!user) {
+            return res.status(404).json({ message: "User with username not found", status: 404 })
+        }
+        const isCorrectPassword = await bcrypt.compare(password, user.password)
+        if (!isCorrectPassword) {
+            return res.status(400).json({ message: "Incorrect password", status: 400 })
+        }
+        req.user=user
+        next()
+
+    } catch (e) {
+        console.log(e)
+        return res.status(500).json({ message: "Server Error" })
     }
 }

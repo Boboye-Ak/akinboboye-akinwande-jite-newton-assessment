@@ -5,6 +5,7 @@
         "commonjs": true,
         "es2021": true
     },
+    "ignorePatterns": ["node_modules/", "dist/", "test/"],
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": "latest"

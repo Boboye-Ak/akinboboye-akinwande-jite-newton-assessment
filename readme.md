@@ -6,7 +6,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 
 - User authentication using JWT (JSON Web Token)
 - Secure password storage with hashing
-- Password validation using a regex function(Only allows strong passwords. Password must contain letters, numbers, symbols and at least 8 characters long)
+- Password validation using a regex function(Only allows strong passwords. Password must contain letters, numbers, symbols and at least 8 characters long with at least one capital letter)
 - MongoDB as the database backend
 - Express.js for routing and middleware
 - Error handling and validation
@@ -22,40 +22,44 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/Boboye-Ak/akinboboye-akinwande-jite-newton-assessment
-    cd akinboboye-akinwande-jite-newton-assessment
-    ```
+   ```bash
+   git clone https://github.com/Boboye-Ak/akinboboye-akinwande-jite-newton-assessment
+   cd akinboboye-akinwande-jite-newton-assessment
+   ```
 
 2. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. **Set up environment variables:**
 
-    Create a `.env` file in the project root and add the following variables:
+   Create a `.env` file in the project root and add the following variables:
 
-    ```plaintext
-    PORT=4000
-    MONGODB_URI=mongodb://localhost:27017/your-database-name
-    JWT_SECRET=your-secret-key
-    ```
+   ```plaintext
+   PORT=4000
+   MONGODB_URI=mongodb://localhost:27017/your-database-name
+   JWT_SECRET=your-secret-key
+   ```
 
 4. **Start the server:**
 
-    ```bash
-    npm start
-    ```
-     ```bash
-    npm run dev #for development mode
-    ```
-    
+   ```bash
+   npm start
+   ```
+
+   ```bash
+   npm run dev #for development mode
+   ```
+
+   ```bash
+   npm run swagger-autogen #to update the documentation if you make changes
+   ```
 
 5. **Access the API:**
 
-    The API should be accessible at `http://localhost:4000`.
+   The API should be accessible at `http://localhost:4000`.
 
 ## API Endpoints
 
@@ -64,7 +68,6 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 - **POST /api/login**: Authenticate and generate JWT token
 - **GET /api/dashboard**: Get user dashboard data (protected route)
 - **GET /doc/**: Get api swagger documentation
-
 
 ## Authentication
 
