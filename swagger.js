@@ -5,6 +5,6 @@ const endpointsFiles = ['./src/index.js']
 
 swaggerAutogen(outputFile, endpointsFiles,
     {
-        host: "akinboboye-akinwande-tobmas-production.up.railway.app/doc",
+        host: "akinboboye-akinwande-tobmas-production.up.railway.app",
         schemes: ["http", "https"],
     })
