@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "akinboboye-akinwande-tobmas-production.up.railway.app/doc",
+  "host": "akinboboye-akinwande-tobmas-production.up.railway.app",
   "basePath": "/",
   "schemes": [
     "http",
