@@ -12,6 +12,7 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 - Error handling and validation
 - Environmental configuration using `.env` file
 - API documentation using Swagger
+- API documentation using Postman
 
 ## Prerequisites
 
