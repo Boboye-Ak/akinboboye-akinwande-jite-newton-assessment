@@ -24,8 +24,8 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Boboye-Ak/akinboboye-akinwande-jite-newton-assessment
-   cd akinboboye-akinwande-jite-newton-assessment
+   git clone https://github.com/Boboye-Ak/akinboboye-akinwande-tobmas
+   cd akinboboye-akinwande-tobmas
    ```
 
 2. **Install dependencies:**
