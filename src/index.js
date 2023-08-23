@@ -36,14 +36,6 @@ app.get("/api/dashboard", [requiresAuth], dashboard_get)
 
 //Test endpoint
 app.get("/test", (req, res) => {
-                 /* #swagger.responses[200] = {
-            description: 'Username, status and token.',
-            schema: {
-                message: 'Hello world',
-                
-            }
-    } */
-    // #swagger.description = 'Endpoint to test if the server is online'
     return res.status(200).json({ message: "Hello world" })
 })
 

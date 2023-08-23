@@ -4,7 +4,7 @@ const { signupValidator, loginValidator } = require("../middleware/authMiddlewar
 const router = express.Router()
 
 router.post("/signup", [signupValidator], signup_post)
-router.post("/login", [loginValidator],login_post)
+router.post("/login", [loginValidator], login_post)
 
 
 module.exports = router
