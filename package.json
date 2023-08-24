@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon ./src/index.js",
-    "test": "cross-env NODE_ENV=test mocha --exit",
+    "test": "cross-env NODE_ENV=test nyc mocha --exit",
     "start": "node ./src/index.js",
     "swagger-autogen": "node swagger.js"
   },
@@ -27,6 +27,7 @@
     "chai": "^4.3.7",
     "chai-http": "^4.4.0",
     "mocha": "^10.2.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "nyc": "^15.1.0"
   }
 }
