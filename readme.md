@@ -70,8 +70,8 @@ This repository contains a RESTful API built using Node.js, MongoDB for data sto
 ## API Endpoints
 
 - **GET /test**: Test the api
-- **POST /auth/signup**: Register a new user
-- **POST /api/login**: Authenticate and generate JWT token
+- **POST /api/auth/signup**: Register a new user
+- **POST /api/auth/login**: Authenticate and generate JWT token
 - **GET /api/dashboard**: Get user dashboard data (protected route)
 - **GET /doc/**: Get api swagger documentation
 
